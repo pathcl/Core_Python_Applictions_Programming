@@ -1,0 +1,172 @@
+[Core Python Applications Programming] [Core Python Applications Programming]
+Return to previous page
+Errata/Corrigenda
+
+Last updated: Fri Jun 19 00:48:13 PDT 2012
+WHAT'S NEW!! 
+• Jun 2012: More fixes have been made, the most important for pp. 28, 30, 48, 628-631 
+• Apr 2012: Errata fixes have been made to the source files (and archives updated) so check you have the latest or download them here. 
+• Mar 2012: Not all fixes made it by the publisher deadline, so the first Errata are here. The fixes are proactively corrected in electronic (Safari, Kindle, iTunes, etc.) versions as well as future hardcopy printings.
+If you find a new problem, send it to us at corepython (at) yahoo.com. Each errata item follows the format below... submit yours using the same format so that we can upload it faster to this page. Send in any comments, suggestions, and general feedback.
+
+Page(s) :: Section (may also have Figure, Table, or Example number) :: Subsection (if appl.) : correction
+
+To keep things under control, there are a pair of errata categories: "minor" and... well, not minor. Each minor erratum is in gray font and includes incorrect typefaces/styles or typos which do not materially affect the code or material. Everything else does. In order to not distract readers with the minor trivialities, there's a switch below to hide the small stuff. Also, "para" is shorthand notation for "paragraph." Finally, those marked with an asterisk (*) are the newest additions to this list.
+
+Hide Minor Errata
+FrontMatter
+
+*xxv :: Part III : Chapter 14 : Add the missing word "with," as in, "...combine it with XML...."
+*xxv :: Part III : Chapter 15 : Change the wording from "...the next edition..." to "...a future edition..." as it's just my intention.
+Chapter 1
+
+*28 :: 1.3.11 : In the middle of the page just below the first block of code but before the text underneath, add a box with "3.x" in the margin as well as the following text and code snippet: If you're using Python 3 be aware that iterator next() methods have been generalized to a next() built-in function instead, so you'd need to make the call like this:
+>>> next(re.finditer(r'(th\w+) and (th\w+)', s, re.I)).groups()
+('This', 'that')
+*30 :: 1.3.13 : Right below the large block near the page bottom, add a new para in between the ones which begin with, "The preceding...," and "Naturally,...," which reads like this:
+While we spell out details about extension notations in the next subsection, in order for you to read this regex, you need to know a few things: the ?= extension means group but don't save the subgroup while ?: means look for this match but don't consume the content, so in the code, it says look for "space followed by a ZIP code or US state abbreviation but don't eat those up meaning don't make them part of what is being searched for. It's what comes after the closing parenthesis of (?: . . .) that I want to match, and that would be a single space, which is the only way to make this work because while I do want to match on (a comma-followed-by-space or) a space, I don't just want any space. I want a space that's immediately followed by a ZIP code or US state abbreviation. This "lookahead" extension lets me "peek" to see what's in front to see if that's the type of space I want to match on.
+38 :: 1.4 : Example 1-2 : Line 8 : It should be eachLine.rstrip() (source correct online).
+38 :: 1.4 : In the final para on page, need to bold+mono/Courier "with"; similar for "from __future__".
+39 :: 1.4 : Example 1-3 : Line 9 : It should be eachLine.rstrip() (source correct online)
+*43 :: 1.4 : Lines 10-12 : Add one more para to this section which reads:
+For those of you with 64-bit versions of Python, you may see the following error with regards to the code in lines 11-12:
+$ python gendata.py  
+Traceback (most recent call last):
+  File "gendata.py", line 12, in 
+    dtstr = ctime(dtint)        # date string
+ValueError: unconvertible time
+This is because time.ctime() cannot process such large values. The fastest way to get your code working is to replace the use of sys.maxint on line 11 with something "reasonable" like 2 ** 32, as in: dtint = randrange(2**32). You can even remove the now-superfluous import. We've created a special version of this example called gendata-64b.py and made it available on the Web site.
+43 :: 1.5 : Line-by-Line Explanation : Change subsection titles
+"Lines 14-22" should be "Lines 13-16"
+"Lines 24-25" should be "Lines 17-18"
+*48 :: 1.6 : Exercises : In the leading sentence, add the missing space and change "to1-12" to "to 1-11", remove exercise 1-8, and renumber 1-9 through 1-15, as 1-8 through 1-14, respectively. Finally, add a new exercise 1-15 which reads:
+In Section 1.3.13, look at the regex that's found in the "for datum in DATA:" loop. Why is there a single trailing space at the end of the regex right before the closing quote?
+Chapter 2
+
+59 :: 2.3.1 : In the final para of subsection, add a missing comma by changing {6} to {,6}.
+*64 :: 2.4.3 : There are two missing words in the final sentence on this page; it should instead say: "... the following pseudocode to operate the server however you want it to."
+79 :: 2.5 : Table 2-3 : In the row for BaseRequestHandler, change "instances" to "subclasses".
+Chapter 3
+
+101 :: 3.x : Example 3-1 : Line 44 is unnecessary and can be deleted; this change has already been made to the downloadable version from this site.
+131 :: 3.4.16 : Change this to section 3.5 and cascade this change downwards.
+133 :: 3.4.16 : Lines 30-33 : Remove the hyphen from s.set_debug-level.
+134 :: 3.4.16 : Lines 35-48 : Underline the entire final sentence here as some readers will complain the code does not work: "Naturally, you need to fill in all of the following for your application to work: SENDER, RECIPS, and SOME_IMG_FILE."
+136 :: 3.4.16 : Best Practices : Change "...these two e-mail services, let's..." to, "...the two e-mail services from Google and Yahoo!, let's...."
+143 :: 3.4.16 : Lines 72-84 : socket.error should not be bold.
+154 :: 3.6 : Exercise 3-30 : Remove the first hyphen in e-mail-examples.py.
+Chapter 4
+
+156 :: opening quote : Need a space between ">" and the first word of each line that has them, i.e., "> With..." and "> Sorry...."
+169 :: 4.4 : Lines 14-34 : Remove the hyphen in thread.al-locate_lock().
+170 :: 4.5 : Table 4-2 : Add a black box containing "3.2" in the margin next to the final row of table.
+186 :: 4.7.1 : In the 5th para, the "X" should be italic, as in mtsleepX.py.
+201 :: 4.7.4 : Core Tip sidebar : In the 2nd para, change "camelCase" to "CamelCase".
+Chapter 5
+
+219 :: 5.2.4 : LabelFrame, PanedWindow, Spinbox, should be in Courier; also add a black box in the margin containing "2.3".
+222-224 :: 5.3.1-5.3.4 : Examples 5.1-5.4 : the scripts tkhello1.py, tkhello2.py, etc., have been renamed as tkhelloA.py tkhelloB.py, etc., respectively. The names don't matter much in the book itself or what you call it on your system, but look for these files with their new names if downloading from this site. The reason for the change is to disambiguate Python 3 versions of each file, i.e., the Python 3 versions are named tkhelloA3.py tkhelloB3.py, etc. This change is global throughout this chapter, and only the new names will used in future and electronic printings of this book.
+227-228 :: 5.3.5 : Example 5.5 : The script pfaGUI2.py should be renamed as pfaGUI.py. This change is global throughout this chapter, and only the new name will used in future and electronic printings of this book. On this site, you can also download the Python 3 version of this script... it's named pfaGUI3.py.
+243-244 :: 5.4.4 : Line-by-Line Explanation : Change subsection titles
+"Lines 8-51" should be "Lines 8-50"
+"Lines 18-36" should be "Lines 18-35"
+"Lines 41-44" should be "Lines "40-43"
+"Lines 45-46" should be "Lines "44-45"
+"Line 46" should be "Line 45"
+"Lines 53-55" should be to "Lines 52-54"
+Chapter 6
+
+271 :: 6.2.7 : MySQL : In the 1st code section, remove the extra space between "drop" and "database".
+272 :: 6.2.7 : PostgreSQL : Remove "current" from the first sentence: "...three current Python...."
+280 :: 6.2.8 : Porting to Python 3 : At the top of this page, change the "print" in "... to the print/print()-equivalent..." to bold+mono/Courier(but leave "/" as roman and print() as just mono/Courier [no bold]).
+281 :: 6.2.8 : Example 6-1 : lines 22-23 : Keep the current typeface but bold "lambda" in both lines (just like on lines 113 & 141 on p. 283).
+285 :: 6.2.8 : Lines 1-32 : Remove "(lines 21-22)" and "(lines 24-32)".
+286 :: 6.2.8 : "Lines 34-98" : Change hyphen in mysql-connector to a period: mysql.connector; and also remove "(lines 38-50)", "(lines 52-80)", "(lines 53-68)", "(lines 69-78)", "(lines 79-80)", and "(lines 82-95)" as they are all off by one and such level of detail is unnecessary.
+286-288 :: 6.2.8 : Line-by-Line Explanation : Change subsection titles
+"Lines 34-98" should be "Lines 35-99"
+"Lines 100-112" should be "Lines 101-113"
+"Lines 114-126" should be "Lines 115-127"
+"Lines 128-138" should be "Lines 129-139"
+"Line 140" should be "Line 141"
+"Lines 142-152" should be "Lines 143-153"
+"Lines 154-158" should be "Lines 155-159"
+"Lines 160-191" should be "Lines 161-195"
+290 :: 6.3.2 : Setup and Installation : Add black box in margin with "2.5, 3.x"
+292 :: 6.3.4 : Example 6-2 : Remove the extra space indentation in line 11 so that it's flush with line 12.
+Chapter 7
+
+*325 :: 7.1 : In the 4th para, should introduce acronym: VSTO (Visual Studio Tools for Office)
+*329 :: 7.3.1 : Core Note : The new term dynamic dispatch should be italicized.
+335 :: 7.3.4 : Example 7-4 : Delete line 4 as there is no use of time.sleep() in this script. (This change has already been made in the downloadable file on this site.)
+*363 :: 7.6 : Exercise 7-24 : A function/method name that's misspelled should be Shapes.AddOLEObject().
+Chapter 9
+
+*408 :: 9.2.5 : In the 1st sentence of the 2nd para, add " to " in between the filenames, urlopen_auth.py and urlopen_auth3.py.
+Chapter 10
+
+*482 :: 10.6.4 : Remove the extra single quote from exc_info[2'].
+*483 :: 10.6.6 : In the 2nd para of this section, "wsgiref" should be in mono/Courier font, i.e., "...the wsgiref package...."
+*484 :: 10.6.7 : In the final para of this section, "webapp" should be in mono/Courier font, i.e., "...the webapp package...." Also, append the following to the very end of this para/section: "(If you're using the Python 2.7 runtime, then look in wsgi.py instead.)".
+Chapter 11
+
+493 :: chapter title : Should be in the same font (size+style) as all other chapter titles (likely a paragraph style issue).
+*500 :: 11.3.1 : Installing Django : Change the code command: $ sudo pip install django to $ pip install django # sudo if not using virtualenv
+*502 :: 11.4.1 : Add pair of doublequotes: "...in the Variable value textbox" should be '...in the "Variable value" textbox'
+*510 :: 11.6.1 : In the first para, remove the final sentence (that starts with, "In the examples here,...."). This SQLite comment is irrelevant here and may cause confusion as readers transition to the "Using MySQL" section.
+*539 :: 11.10.1 : In the code, "return" should be bold+mono, i.e., return render_to_resp...
+*547 :: 11.12.1 : In the sentence with, "...designates on which...", the "on" should be in roman not mono font
+*556 :: 11.15 : Lines 15-21 : In the final sentence, change "direct" to "directly"
+*571 :: 11.16.2 : Change "...and later comes with..." to "...and newer come with" (NOTE: 2 fixes there)
+*575 :: 11.16.3 : Unbold the "thank_you()" (but keep as mono)
+*580 :: 11.16.4 : Example 11-12 : Merge lines 4 & 5 together into a new line 4 which appears as: "admin.site.register(Tweet, Comment)"; this change has already been made to the downloadable version from this site.
+*583 :: 11.16.5 : Example 11-14 : Line 35 : Creating a new TweetForm object is not necessary as form already points to such an object, so change this line to simply {'form' : form}). This change has already been made to the downloadable version from this site.
+*584 :: 11.16.5 : Lines 20-36 : In the para at the bottom of the page, the word "tweet" in "... assigned to the tweet variable" should be in mono.
+*585 :: 11.16.5 : "Lines 38-42" should be "Lines 37-42"
+*585 :: 11.16.5 : Lines 44-48 : In the first sentence, remove the text, "...shown in Example 11-16..."
+*592 :: 11.16.6 : Lines 86-93 : There should be a blank line between the pair of paras on this page as the 2nd para does not belong to the Line-by-Line Explanation.
+Chapter 12
+
+*628 :: 12.5.2 : Example 12-5 : Line 1 : The webapp2 library is standalone and not in google.appengine.ext so change this statement to import webapp2. If it still fails, you may need to go to /usr/local/google_appengine/lib/webapp2 or whereever webapp2 is installed and install it manually with: $ sudo python setup.py install. (Furthermore, you may need to do the same thing for webob from /usr/local/google_appengine/lib/webob.)
+*628 :: 12.5.2 : In the 2nd to last para of this section, main.py needs to be in mono/Courier font.
+*628 :: 12.6.1 (12.7) : This section should be numbered as 12.7 instead of 12.6.1
+*629 :: 12.6.1 (12.7) : The first shell command should not have the trailing period after "DIR":
+$ dev_appserver.py DIR
+
+The second shell command is missing a space between the ".py" and the ".":
+
+$ dev_appserver.py .
+
+*629 :: 12.6.2 (12.8) : This section should be numbered as 12.8 instead of 12.6.2
+*629 :: 12.6.2 (12.9) : Remove "Live" from the subsection whose title, "*Uploading Your Application Live to Google", and that subsection should be numbered as 12.9
+*630 :: 12.6.2 (12.9) : At the bottom of the page, replace the "12-X" in the link to "http://APP_ID.appspot.com"
+*631 :: 12.7 (12.10) : This section should be numbered as 12.10 instead of 12.7, and this change should be cascaded to all remaining sections, so the last section, currently 12.22 (Exercises) should be 12.25.
+*640 :: 12.7.4 (12.10.4) : In the code, change BlogEntry to BlogPost.
+*654 :: 12.11 (12.14) : After the first para and code sections, insert this new para:
+More recent versions of the API have greatly simplified this process — create a new "builtins:" section or add to an existing one the "remote_api" directive which automatically sends requests to /_ah/remote_api:
+builtins:
+- remote_api: on
+*657 :: 12.12.1 (12.15.1) : Change all appearances of APP_ID on this page italic
+*665 :: 12.15.1 (12.18.1) : The fonts are inconsistent in the numbered bullet list... change the final ones (4 & 5) to roman. (The items in the list themselves should be mono however.)
+*667 :: 12.20 (12.23) : Remove the Mapper section (all 3 lines) as the MapReduce API is fully complete so there's no need for just the Mapper.
+*676 :: 12.19 (12.22) : Remove the 2nd hyphen in Django-non-rel.
+Chapter 13
+
+*711 :: 13.4 : Twitter : Change, "This last exercise...," to "This next exercise...."
+Chapter 14
+
+*738 :: 14.4.1 : There's no need to have a 14.4.1 if there's no 14.4.2, so just remove 14.4.1 subheading and let everything sit under 14.4.
+*739 :: 14.4.1 (14.4) : In the final paragraph, "Pact" should be "Packt"
+Chapter 15
+
+743 :: opening quote : Add an em dash in front of the quoter's name.
+750 :: 15.2.3 : The opening sentence of the 1st para should be: "In Example 15-3, we've...."
+Other
+
+*Back Cover :: Main bullet list : "NonSQL" should be "NoSQL"
+CREDITS
+
+Thanks to the many readers who have provided invaluable feedback and corrections in this section. They include (but are not limited to): ... YOU?!? If you send me something that I don't have and hasn't been already submitted ahead of you in the queue, then you can find yourself publicly acknowledged here!!
+[Core Python Applications Programming] 
+[powered by Python]
+© 2001-2014 CyberWeb Consulting
+corepython (at) yahoo (dot) com
